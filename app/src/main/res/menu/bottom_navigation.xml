@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_meet"
+        android:enabled="true"
+        android:icon="@drawable/videocam"
+        android:title="Meet" />
+    <item
+        android:id="@+id/navigation_white_board"
+        android:icon="@drawable/whiteboard"
+        android:title="White Board" />
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/chaticon"
+        android:title="Chat" />
+    <item
+        android:id="@+id/navigation_notice"
+        android:icon="@drawable/email_icon"
+        android:title="Notice" />
+
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/person_icon"
+        android:title="Account" />
+</menu>

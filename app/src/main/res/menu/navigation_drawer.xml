@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/navigation_video_lecture"-->
+<!--        android:icon="@drawable/ic_video_lecture"-->
+<!--        android:title="Video Lecture" />-->
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_ebook"
+        android:icon="@drawable/ic_ebook"
+        android:title="Ebook" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_theme"-->
+<!--        android:icon="@drawable/ic_theme"-->
+<!--        android:title="Theme" />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_website"-->
+<!--        android:icon="@drawable/ic_website"-->
+<!--        android:title="Website" />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_share"-->
+<!--        android:icon="@drawable/ic_share"-->
+<!--        android:title="Share" />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_rate_us"-->
+<!--        android:icon="@drawable/ic_rate_us"-->
+<!--        android:title="Rate Us" />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_notice"-->
+<!--        android:icon="@drawable/ic_notice"-->
+<!--        android:title="Notice" />-->
+    <item
+        android:id="@+id/navigation_faculty"
+        android:icon="@drawable/ic_faculty"
+        android:title="Faculty" />
+    <item
+        android:id="@+id/navigation_gallery"
+        android:icon="@drawable/ic_gallery"
+        android:title="Gallery" />
+    <item
+        android:id="@+id/navigation_about"
+        android:icon="@drawable/ic_about"
+        android:title="About" />
+    <item
+        android:id="@+id/navigation_developers"
+        android:icon="@drawable/ic_developer"
+        android:title="Developers" />
+</menu>

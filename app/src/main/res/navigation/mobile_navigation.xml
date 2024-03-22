@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_meet">
+    <fragment
+        android:id="@+id/navigation_meet"
+        android:name="com.example.study.newstudy.MeetFragment"
+        android:label="Meet"
+        tools:layout="@layout/fragment_meet" />
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.study.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_notice"
+        android:name="com.example.study.ui.notice.NoticeFragment"
+        android:label="Notice"
+        tools:layout="@layout/fragment_notice" />
+    <fragment
+        android:id="@+id/navigation_faculty"
+        android:name="com.example.study.ui.faculty.FacultyFragment"
+        android:label="Faculty"
+        tools:layout="@layout/fragment_faculty" />
+    <fragment
+        android:id="@+id/navigation_gallery"
+        android:name="com.example.study.ui.gallery.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery" />
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.example.study.ui.about.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.study.newstudy.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:name="com.example.study.newstudy.Chats.ChatFragment"
+        android:label="Chats"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/navigation_white_board"
+        android:name="com.example.study.newstudy.WhiteBoard.WhiteBoardFragment"
+        android:label="White Board"
+        tools:layout="@layout/fragment_white_board" />
+</navigation>
