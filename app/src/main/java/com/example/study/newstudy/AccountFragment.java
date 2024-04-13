@@ -1,18 +1,27 @@
 package com.example.study.newstudy;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +38,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.zxing.WriterException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Rectangle;
@@ -41,12 +51,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import androidmads.library.qrgenearator.QRGContents;
+import androidmads.library.qrgenearator.QRGEncoder;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class AccountFragment extends Fragment {
     Button selectImagesBtn, createPdfBtn;
     TextView selectedImagesTV;
+    ImageView qrCodeIV;
+    Bitmap bitmap;
+    QRGEncoder qrgEncoder;
     ArrayList<Uri> imageUris = new ArrayList<>();
     private Button updateProfileBtn;
     private TextView textViewName;
@@ -72,6 +87,7 @@ public class AccountFragment extends Fragment {
     }
 
     private void initializeViews(View view) {
+        qrCodeIV = view.findViewById(R.id.imageView2);
         updateProfileBtn = view.findViewById(R.id.updateProfileBtn);
         textViewName = view.findViewById(R.id.textView11);
         textViewStudentId = view.findViewById(R.id.textView13);
@@ -108,6 +124,44 @@ public class AccountFragment extends Fragment {
                             textViewStudentId.setText("Student ID: " + user.getUserId());
                             textViewEmail.setText("Email: " + user.getMail());
                             loadProfileImage(user.getProfilepic());
+                            // Check if user.getUserName() is not empty
+                            if (!TextUtils.isEmpty(user.getUserName())) {
+                                // Get the text from user.getUserName()
+                                String text = user.getUserName();
+
+                                // Get WindowManager service from Fragment's context
+                                WindowManager manager = (WindowManager) requireContext().getSystemService(Context.WINDOW_SERVICE);
+
+
+                                // Get default display
+                                Display display = manager.getDefaultDisplay();
+
+                                // Get display dimensions
+                                Point point = new Point();
+                                display.getSize(point);
+                                int width = point.x;
+                                int height = point.y;
+                                int dimen = width < height ? width : height;
+                                dimen = dimen * 3 / 4;
+
+                                // Create QRGEncoder with the text and desired dimensions
+                                qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, dimen);
+
+                                try {
+                                    // Generate QR code as Bitmap
+                                    bitmap = qrgEncoder.encodeAsBitmap();
+
+                                    // Set the generated QR code bitmap to qrCodeIV
+                                    qrCodeIV.setImageBitmap(bitmap);
+                                } catch (WriterException e) {
+                                    // Handle exception
+                                    Log.e("Tag", e.toString());
+                                }
+                            } else {
+                                // Show a toast message if user.getUserName() is empty
+                                Toast.makeText(getContext(), "Username is empty", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     }
                 }

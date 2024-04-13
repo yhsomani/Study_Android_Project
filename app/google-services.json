@@ -1,52 +1,13 @@
 {
   "project_info": {
-    "project_number": "469781909203",
-    "firebase_url": "https://study-ccd4b-default-rtdb.firebaseio.com",
-    "project_id": "study-ccd4b",
-    "storage_bucket": "study-ccd4b.appspot.com"
+    "project_number": "12782664071",
+    "project_id": "study-26dc1",
+    "storage_bucket": "study-26dc1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:469781909203:android:1661a4af8be5400d198e26",
-        "android_client_info": {
-          "package_name": "com.example.admincollegeapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCTy_lY35U0jvNZ29vd4SGDIKIdLpe86B0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:469781909203:android:5eea8fa0719477e9198e26",
-        "android_client_info": {
-          "package_name": "com.example.collegeapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCTy_lY35U0jvNZ29vd4SGDIKIdLpe86B0"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:469781909203:android:95d304bafd07265e198e26",
+        "mobilesdk_app_id": "1:12782664071:android:4661536da77789fce5bb22",
         "android_client_info": {
           "package_name": "com.example.study"
         }
@@ -54,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCTy_lY35U0jvNZ29vd4SGDIKIdLpe86B0"
+          "current_key": "AIzaSyCzSRpUKyu4ooR31y4DWvtKp6Y-eeVXAqQ"
         }
       ],
       "services": {

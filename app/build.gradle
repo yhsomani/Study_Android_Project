@@ -65,5 +65,8 @@ dependencies {
 
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+
+
 
 }
