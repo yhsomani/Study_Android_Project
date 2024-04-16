@@ -3,7 +3,7 @@
     <style name="Base.Theme.Study" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">#31E373</item>
+        <item name="colorPrimary">#3178E3</item>
         <item name="colorPrimaryVariant">#000000</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->

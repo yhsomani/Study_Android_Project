@@ -88,7 +88,7 @@ public class AccountFragment extends Fragment {
 
     private void initializeViews(View view) {
         qrCodeIV = view.findViewById(R.id.imageView2);
-        updateProfileBtn = view.findViewById(R.id.updateProfileBtn);
+//        updateProfileBtn = view.findViewById(R.id.updateProfileBtn);
         textViewName = view.findViewById(R.id.textView11);
         textViewStudentId = view.findViewById(R.id.textView13);
         textViewEmail = view.findViewById(R.id.textView15);

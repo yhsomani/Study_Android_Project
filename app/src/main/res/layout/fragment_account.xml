@@ -70,17 +70,6 @@
             app:layout_constraintStart_toStartOf="@+id/linearLayout3"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-        <Button
-            android:id="@+id/updateProfileBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/update_profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.195"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
 
         <Button
             android:id="@+id/logoutbtn"
@@ -88,11 +77,9 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#F44444"
             android:text="@string/logout"
-            app:layout_constraintBottom_toBottomOf="@+id/updateProfileBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/updateProfileBtn"
-            app:layout_constraintTop_toTopOf="@+id/updateProfileBtn"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <Button
             android:id="@+id/select_images_btn"
@@ -100,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Select Images"
-            app:layout_constraintEnd_toEndOf="@+id/updateProfileBtn"
+            app:layout_constraintEnd_toEndOf="@+id/logoutbtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selected_images_tv" />
 
@@ -111,7 +98,7 @@
             android:layout_marginTop="10dp"
             android:text="Create PDF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/updateProfileBtn"
+            app:layout_constraintStart_toStartOf="@+id/logoutbtn"
             app:layout_constraintTop_toBottomOf="@+id/selected_images_tv" />
 
         <TextView
@@ -121,8 +108,8 @@
             android:layout_marginTop="15dp"
             android:text="No images selected"
             app:layout_constraintEnd_toEndOf="@+id/logoutbtn"
-            app:layout_constraintStart_toStartOf="@+id/updateProfileBtn"
-            app:layout_constraintTop_toBottomOf="@+id/updateProfileBtn" />
+            app:layout_constraintStart_toStartOf="@+id/logoutbtn"
+            app:layout_constraintTop_toBottomOf="@+id/logoutbtn" />
 
 
         <ImageView
