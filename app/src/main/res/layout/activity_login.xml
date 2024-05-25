@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".newstudy.newstudy.Authentication.LoginActivity">
+    tools:context=".newstudy.Authentication.LoginActivity">
 
     <ImageView
         android:id="@+id/imageHeader"
@@ -12,7 +12,7 @@
         android:layout_height="280dp"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/loginscreen_img"
+        android:src="@drawable/mobile_login_bro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

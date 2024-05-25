@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newstudy.DevelopersFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:text="Developers"
+        android:textColor="#3178E3"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:background="#c0c0c0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <!-- Replace LinearLayout with GridLayout -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <!-- Each cell in the grid -->
+        <TextView
+            android:id="@+id/developer_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center_horizontal"
+            android:text="Roll No"
+            android:textColor="#3178E3"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/developer_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center_horizontal"
+            android:text="Names"
+            android:textColor="#3178E3"
+            android:textSize="20sp" />
+        <!--_______________________________________________-->
+        <TextView
+            android:id="@+id/siddhi_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="B4215"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/siddhi_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="Siddhi Mhasawade"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+        <!--        ________________________________________-->
+        <TextView
+            android:id="@+id/hitesh_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="B4220"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/hitesh_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="Hitesh Nichit"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+        <!--        __________________________________________-->
+        <TextView
+            android:id="@+id/asavari_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="B4221"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/asavari_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="Asavari Nikam"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+        <!--        ______________________________________-->
+        <TextView
+            android:id="@+id/yash_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="B4261"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/yash_names"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="Yash Somani"
+            android:textColor="#778FB5"
+            android:textSize="20sp" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/guided_by_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:text="Guided By"
+        android:textColor="#3178E3"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+    <TextView
+        android:id="@+id/professor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
+        android:text="Prof. Abhilasha S Shinde"
+        android:textColor="#6188C6"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guided_by_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

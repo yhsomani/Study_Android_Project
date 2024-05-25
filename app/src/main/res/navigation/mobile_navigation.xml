@@ -49,4 +49,9 @@
         android:name="com.example.study.newstudy.WhiteBoard.WhiteBoardFragment"
         android:label="White Board"
         tools:layout="@layout/fragment_white_board" />
+    <fragment
+        android:id="@+id/navigation_developers"
+        android:name="com.example.study.newstudy.DevelopersFragment"
+        android:label="Developers"
+        tools:layout="@layout/fragment_developers" />
 </navigation>
