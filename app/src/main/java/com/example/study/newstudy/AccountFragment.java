@@ -46,6 +46,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -54,9 +56,16 @@ import java.util.ArrayList;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import de.hdodenhof.circleimageview.CircleImageView;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 
 
 public class AccountFragment extends Fragment {
+    private static final int REQUEST_CODE_PERMISSIONS = 101;
+
     Button selectImagesBtn, createPdfBtn;
     TextView selectedImagesTV;
     ImageView qrCodeIV;
@@ -247,24 +256,107 @@ public class AccountFragment extends Fragment {
     private static final String TOAST_SUCCESS = "PDF Created and saved to: ";
     private static final String TOAST_ERROR = "Error: ";
 
+//    private void createPdf() {
+//        if (imageUris.size() == 0) {
+//            showToast("Please select images");
+//            return;
+//        }
+//
+//        // Default directory for saving PDF
+//        String destinationDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+//
+//        // PDF Document
+//        Document document = new Document();
+//
+//        try {
+//            // Path to save PDF
+//            String pdfPath = destinationDirectory + "/images.pdf";
+//
+//            // Create instance of PdfWriter
+//            PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(pdfPath)));
+//
+//            // Open the document to write
+//            document.open();
+//
+//            // Get page size
+//            Rectangle pageSize = document.getPageSize();
+//
+//            for (Uri imageUri : imageUris) {
+//                // Get input stream from image URI
+//                try (InputStream imageStream = new BufferedInputStream(getContext().getContentResolver().openInputStream(imageUri))) {
+//                    // Convert image stream to Bitmap
+//                    Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
+//
+//                    // Scale image to fit the page
+//                    float documentWidth = pageSize.getWidth() - document.leftMargin() - document.rightMargin();
+//                    float documentHeight = pageSize.getHeight() - document.topMargin() - document.bottomMargin();
+//                    float imageWidth = bitmap.getWidth();
+//                    float imageHeight = bitmap.getHeight();
+//                    float widthScale = documentWidth / imageWidth;
+//                    float heightScale = documentHeight / imageHeight;
+//                    float scaleFactor = Math.min(widthScale, heightScale);
+//                    int scaledWidth = Math.round(imageWidth * scaleFactor);
+//                    int scaledHeight = Math.round(imageHeight * scaleFactor);
+//
+//                    // Calculate X and Y coordinates to center-align the image
+//                    float x = (documentWidth - scaledWidth) / 2;
+//                    float y = (documentHeight - scaledHeight) / 2;
+//
+//                    // Resize the Bitmap
+//                    Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, scaledWidth, scaledHeight, true);
+//
+//                    // Convert Bitmap to iText Image
+//                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                    scaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                    Image image = Image.getInstance(stream.toByteArray());
+//
+//                    // Set image position
+//                    image.setAbsolutePosition(x, y);
+//
+//                    // Add image to document
+//                    document.add(image);
+//                    document.newPage(); // Optional: Start a new page for each image
+//                }
+//            }
+//
+//            // Close document
+//            document.close();
+//
+//            showToast("PDF Created and saved to: " + pdfPath);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            showToast("Error: " + e.getMessage());
+//        }
+//    }
+
     private void createPdf() {
         if (imageUris.size() == 0) {
             showToast("Please select images");
             return;
         }
 
-        // Default directory for saving PDF
-        String destinationDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+        // Ensure external storage permissions are granted
+        if (getContext().checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+//            return;
+        }
+
+        // Path to save PDF
+        String pdfPath = PDF_DIRECTORY + PDF_NAME;
+
+        // Check if the PDF already exists
+        File pdfFile = new File(pdfPath);
+        if (pdfFile.exists()) {
+            showToast("PDF already exists at: " + pdfPath);
+            return;
+        }
 
         // PDF Document
         Document document = new Document();
 
         try {
-            // Path to save PDF
-            String pdfPath = destinationDirectory + "/images.pdf";
-
             // Create instance of PdfWriter
-            PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(pdfPath)));
+            PdfWriter.getInstance(document, new FileOutputStream(pdfFile));
 
             // Open the document to write
             document.open();
@@ -289,10 +381,6 @@ public class AccountFragment extends Fragment {
                     int scaledWidth = Math.round(imageWidth * scaleFactor);
                     int scaledHeight = Math.round(imageHeight * scaleFactor);
 
-                    // Calculate X and Y coordinates to center-align the image
-                    float x = (documentWidth - scaledWidth) / 2;
-                    float y = (documentHeight - scaledHeight) / 2;
-
                     // Resize the Bitmap
                     Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, scaledWidth, scaledHeight, true);
 
@@ -301,24 +389,23 @@ public class AccountFragment extends Fragment {
                     scaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     Image image = Image.getInstance(stream.toByteArray());
 
-                    // Set image position
-                    image.setAbsolutePosition(x, y);
-
-                    // Add image to document
+                    // Center the image on the page
+                    image.setAlignment(Image.MIDDLE);
+                    image.setScaleToFitHeight(true);
                     document.add(image);
-                    document.newPage(); // Optional: Start a new page for each image
+                    document.newPage();
                 }
             }
 
-            // Close document
+            // Close the document
             document.close();
-
             showToast("PDF Created and saved to: " + pdfPath);
         } catch (Exception e) {
             e.printStackTrace();
             showToast("Error: " + e.getMessage());
         }
     }
+
 
     private void showToast(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
