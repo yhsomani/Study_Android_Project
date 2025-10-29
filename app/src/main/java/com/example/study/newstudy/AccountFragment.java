@@ -141,7 +141,6 @@ public class AccountFragment extends Fragment {
                                 // Get WindowManager service from Fragment's context
                                 WindowManager manager = (WindowManager) requireContext().getSystemService(Context.WINDOW_SERVICE);
 
-
                                 // Get default display
                                 Display display = manager.getDefaultDisplay();
 
@@ -154,15 +153,15 @@ public class AccountFragment extends Fragment {
                                 dimen = dimen * 3 / 4;
 
                                 // Create QRGEncoder with the text and desired dimensions
-                                qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, dimen);
+                                QRGEncoder qrgEncoder = new QRGEncoder(text, null, QRGContents.Type.TEXT, dimen);
 
                                 try {
-                                    // Generate QR code as Bitmap
-                                    bitmap = qrgEncoder.encodeAsBitmap();
+                                    // Generate QR code as Bitmap using the correct method
+                                    Bitmap bitmap = qrgEncoder.getBitmap();
 
                                     // Set the generated QR code bitmap to qrCodeIV
                                     qrCodeIV.setImageBitmap(bitmap);
-                                } catch (WriterException e) {
+                                } catch (Exception e) {
                                     // Handle exception
                                     Log.e("Tag", e.toString());
                                 }
@@ -183,6 +182,8 @@ public class AccountFragment extends Fragment {
             });
         }
     }
+
+
 
     private void loadProfileImage(String profileImageUrl) {
         if (getContext() != null && profileImg != null) {
